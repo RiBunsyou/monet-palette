@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "monet-palette"
+version = "0.1.0"
+description = "Material You (Monet) 动态取色算法的 Python 实现"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "Wenxiang Li", email = "Ri_Bunsyou@outlook.com" },
+]
+license = { text = "MIT" }
+dependencies = [
+    "numpy>=1.21",
+    "Pillow>=9.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+monet-palette = "monet_palette.cli:main"
+
+[tool.setuptools]
+packages = ["monet_palette"]
+
+[tool.setuptools.package-dir]
+"" = "."
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v"
